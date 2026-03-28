@@ -1,1 +1,1 @@
-# TripleTen web_project_expenses
+# TripleTen web project expenses

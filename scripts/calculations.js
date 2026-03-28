@@ -1,5 +1,6 @@
 let budgetValue = 0;
 let totalExpensesValue = 0;
+let balanceColor = "green";
 
 const expenseEntries = [
   ["groceries", 33],
@@ -18,16 +19,13 @@ for (let i = 0; i < expenseEntries.length; i++) {
 function calculateAverageExpense() {
   if (expenseEntries.length === 0) {
     return 0;
-  } else {
-    return totalExpensesValue / expenseEntries.length;
   }
+  return totalExpensesValue / expenseEntries.length;
 }
 
 function calculateBalance() {
   return budgetValue - totalExpensesValue;
 }
-
-let balanceColor = "green";
 
 function updateBalanceColor() {
   if (budgetValue - totalExpensesValue < 0) {
@@ -58,7 +56,7 @@ function calculateLargestCategory() {
     ["subscriptions", calculateCategoryExpenses("subscriptions")],
   ];
   let maximum = 0;
-  let name;
+  let name = "";
   for (let i = 0; i < categoriesTotals.length; i++) {
     if (categoriesTotals[i][1] > maximum) {
       maximum = categoriesTotals[i][1];
@@ -71,5 +69,4 @@ function calculateLargestCategory() {
 function addExpenseEntry([category, value]) {
   expenseEntries.push([category, value]);
   totalExpensesValue += value;
-  return value;
 }
